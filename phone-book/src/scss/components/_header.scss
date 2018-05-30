@@ -1,0 +1,407 @@
+/// <reference path = "../abstracts/__abstracts.scss">
+
+#header {
+    background: #fff;
+    border-bottom: 1px solid #f4f4f4;
+    font-size: $header-font-size;
+    font-weight: 600;
+    line-height: 20px;
+    color: $header-default-color;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: always;
+    text-rendering: optimizeLegibility
+}
+
+
+#header a {
+    text-decoration: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none
+}
+
+#header .header-logo {
+    margin: 16px 0;
+    display: inline-block;
+    width: 150px;
+    height: 21px
+}
+
+#header .header-nav-left {
+    margin-top: 20px
+}
+
+#header .header-nav-left>li {
+    float: left;
+    position: relative;
+    padding: 0 15px;
+    list-style: none
+}
+
+#header .header-nav-left>li:last-child {
+    margin: 0
+}
+
+#header .header-nav-left>li>a {
+    font-weight: 600;
+    line-height: 20px;
+    color: $header-default-color;
+    text-transform: uppercase;
+    padding-bottom: 16px;
+    border-bottom: 5px solid transparent;
+    display: block
+}
+
+#header .header-nav-left>li>a.active-link {
+    border-bottom-color: $header-active-color;
+    color: $header-default-color!important
+}
+
+#header .sub-menu-list {
+    display: none;
+    background: #fff;
+    border-top: 1px solid #f4f4f4;
+    border-left: 1px solid $header-border-color;
+    border-right: 1px solid $header-border-color;
+    border-bottom: 1px solid $header-border-color;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    min-width: 245px;
+    z-index: 99
+}
+
+#header .header-nav-left li ul li>a {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    color: $header-default-color;
+    padding: 10px;
+    display: block
+}
+
+#header .sub-menu-list li a:hover,#header .sub-menu-list a.cfl-sel-sublink {
+    background: $gray97;
+    color: $header-active-color;
+    font-weight: 700
+}
+
+#header .cntfl-headernav-rght {
+    margin-top: 20px
+}
+
+#header .cntfl-headernav-rght>li {
+    display: inline-block
+}
+
+#header .cntfl-headernav-rght>li:first-child {
+    border-right: 1px solid $header-border-color;
+    padding-right: 10px
+}
+
+#header .cntfl-headernav-rght>li>a {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    color: $header-default-color
+}
+
+#header .cntfl-headernav-rght>li>a .fa {
+    margin: 0 6px
+}
+
+#header .cntfl-headernav-rght .cfl-blue-icon {
+    color: #3591cf
+}
+
+#header .user-ddl-cntr {
+    position: relative
+}
+
+#header .user-ddl-cntr>a {
+    padding-bottom: 21px;
+    display: inline-block
+}
+
+#header .user-ddl {
+    display: none;
+    padding: 5px 0;
+    position: absolute;
+    top: 42px;
+    left: 0;
+    min-width: 140px;
+    z-index: 99;
+    background: #fff;
+    border-left: 1px solid $header-border-color;
+    border-right: 1px solid $header-border-color;
+    border-bottom: 1px solid $header-border-color
+}
+
+#header .user-ddl>li>a {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    color: $header-default-color;
+    padding: 5px 10px;
+    display: block
+}
+
+#header .user-ddl>li>a .fa {
+    margin-right: 7px
+}
+
+#header .user-ddl>li>a:hover {
+    color: #000
+}
+
+#header .user-ddl-cntr>a>span {
+    text-overflow: ellipsis;
+    float: right;
+    max-width: 90px;
+    overflow: hidden;
+    white-space: nowrap
+}
+
+@media screen and (min-width: 992px) and (max-width:1024px) {
+    #header .cntfl-headernav-rght>li>a>span {
+        display:none
+    }
+}
+
+@media screen and (min-width: 992px) {
+    #header .header-nav-left>li:hover>a {
+        color:$header-active-color
+    }
+
+    .nontouchdevice #header .header-nav-left>li:hover .sub-menu-list {
+        display: block
+    }
+
+    .nontouchdevice #header .user-ddl-cntr:hover .user-ddl {
+        display: block
+    }
+
+    #header .visible-xs {
+        display: none;
+    }
+
+    #header .vis-lrg-dvce,#header .cfl-mob-nav-cntr {
+        display: block!important
+    }
+
+    #header-cntr .fixed-bg {
+        display: none
+    }
+}
+
+@media screen and (max-width: 1260px) {
+    #header .user-ddl {
+        left:auto;
+        right: 0
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    #header .cntfl-headernav-rght>li>a {
+        font-size:13px
+    }
+
+    #header .header-nav-left>li {
+        padding: 0 10px
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width:1199px) {
+    .user-wrapper {
+        padding:0
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .text-sm-cntr {
+        text-align:center
+    }
+
+    .mob-overfw {
+        overflow-x: hidden;
+        height: 100%
+    }
+
+    #header .visible-xs {
+        display: block
+    }
+
+    #header .vis-lrg-dvce,#header .user-ddl-cntr>a>span,#header .employers-link,#header .cntfl-headernav-rght>li>a .fa-sign-in {
+        display: none!important
+    }
+
+    #header .container {
+        width: 100%
+    }
+
+    #header .cntfl-headernav-rght,#header .header-logo {
+        margin: 0
+    }
+
+    #header .cntfl-headernav-rght>li>a {
+        font-size: 12px;
+        line-height: 15px;
+        color: #3591cf;
+        font-weight: 400;
+        padding-bottom: 0
+    }
+
+    #header {
+        border-bottom: 0;
+        padding-top: 15px;
+        position: relative;
+        z-index: 999
+    }
+
+    #header .cntfl-headernav-rght .cfl-blue-icon {
+        font-size: 20px;
+        line-height: 24px
+    }
+
+    #header .cfl-menu-btn {
+        font-size: 20px;
+        line-height: 24px;
+        color: #333
+    }
+
+    #header .header-nav-left {
+        width: 100%;
+        margin-top: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #fff
+    }
+
+    #header .header-nav-left>li {
+        width: 100%;
+        margin-right: 0;
+        position: static;
+        padding: 0
+    }
+
+    #header .cfl-mob-nav-cntr {
+        display: none;
+        padding: 0
+    }
+
+    #header .grey-brdr {
+        border-bottom: 1px solid $header-border-color;
+        padding-bottom: 20px;
+    }
+
+    #header .header-nav-left>li>a {
+        padding: 10px 15px;
+        border-bottom: 1px solid $header-border-color;
+        color: #333;
+        text-decoration: none;
+        text-transform: uppercase
+    }
+
+    #header .cfl-mob-nav-cntr li:last-child a {
+        text-transform: inherit
+    }
+
+    #header .header-nav-left li ul li>a {
+        border-bottom: 1px solid $header-border-color
+    }
+
+    #header .cfl-mob-nav-cntr li:last-child a .fa {
+        margin-right: 6px;
+        margin-top: 4px
+    }
+
+    #header .header-nav-left .fa-angle-right {
+        color: #333;
+        font-size: 20px;
+        line-height: 20px;
+        margin-top: -3px
+    }
+
+    #header .header-hasSubMenu .sub-menu-list {
+        right: -100%;
+        top: 0;
+        left: auto;
+        min-height: 300px;
+        border: 0;
+        display: block!important;
+        width: 100%;
+        -webkit-transition: all 0.5s ease 0s;
+        -moz-transition: all 0.5s ease 0s;
+        -o-transition: all 0.5s ease 0s;
+        transition: all 0.5s ease 0s
+    }
+
+    #header .header-nav-left,.cfl-mob-nav-cntr li:last-child a {
+        -webkit-box-shadow: 0 3px 6px -2px #ccc;
+        -moz-box-shadow: 0 3px 6px -2px #ccc;
+        box-shadow: 0 3px 6px -2px #ccc
+    }
+
+    #header .activesubmenu.sub-menu-list {
+        right: 0;
+    }
+
+    #header .back-navsec {
+        padding: 10px;
+        border-bottom: 1px solid $header-border-color;
+        font-size: 13px;
+        line-height: 18px;
+        font-weight: 600;
+        color: $header-active-color;
+        text-transform: uppercase;
+        cursor: pointer
+    }
+
+    #header .back-navsec a {
+        font-weight: 400!important;
+        color: #333333!important;
+        text-transform: none;
+        text-decoration: none;
+        background: transparent!important
+    }
+
+    #header .user-ddl-cntr,#header .user-wrapper {
+        position: static
+    }
+
+    #header .user-ddl {
+        width: 100%;
+        top: 62px;
+        border: 0;
+        padding: 0
+    }
+
+    #header .user-ddl>li>a {
+        border-bottom: 1px solid $header-border-color;
+        padding: 10px 15px
+    }
+
+    .mob-overfw #header-cntr {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        background: #fff;
+        height: 100%;
+        z-index: 99
+    }
+
+    #header .cfl-mob-nav-cntr {
+        position: fixed;
+        width: 100%;
+        top: 60px;
+        left: 0;
+        height: 84%;
+        overflow-y: auto;
+        overflow-x: hidden
+    }
+}

@@ -1,0 +1,26 @@
+.search-form {
+    display: inline-block;
+}
+
+.search-bar-cont {
+    background: #9f9fa1;
+    padding: 10px;
+    text-align: center;
+    a {
+        color: #000;
+    }
+}
+
+.search-bar {
+    background: #fff;
+    border-radius: 20px;
+    padding: 10px;
+    border: 1px solid #f1f1f1;
+    outline: 0 none;
+    margin-right: 15px;
+    min-width: 270px
+}
+
+.link-add {
+    text-decoration: none;
+}

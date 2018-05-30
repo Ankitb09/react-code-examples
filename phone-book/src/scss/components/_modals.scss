@@ -1,0 +1,16 @@
+/// <reference path = "../abstracts/__abstracts.scss">
+
+
+.modal-dialog{width: $modal-default-width}
+.modal-content{border-radius: 3px;border-color: $modal-border-color;}
+.modal-header,.modal-footer{border: 0 none}
+
+.modal-header{padding: 11px 25px 15px;
+              .h3{padding-right: 7px;color: $modal-header-color}
+              .close {opacity:1;font-size: 14px;font-weight: 400;color: $modal-close-icon;margin: 2px -6px 0 0;}
+}
+.modal-body{padding: 0 25px 15px}
+.modal-footer{padding: 15px 25px 25px}
+
+.modal-sm{width: 400px}
+.modal-lg{width: 600px}
