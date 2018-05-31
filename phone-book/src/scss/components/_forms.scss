@@ -1,82 +1,176 @@
 /// <reference path = "../abstracts/__abstracts.scss">
+.container {
+    margin: 0 auto;
+    max-width: 360px;
+    width: 100%;
+}
 
-label{font-weight: normal;transition: color ease-in-out .15s}
-.form-control{
+.create-new-form {
+    padding: 10px
+}
+
+.form-head {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px
+}
+
+label {
+    font-weight: normal;
+    transition: color ease-in-out .15s;
+    display: block
+}
+
+.form-control {
     @extend %default-style;
-    height: 40px;border-radius: 3px;
-    border-color: $form-input-border;
-    box-shadow:none;
-
-    &:focus{
+    height: 40px;
+    border-radius: 3px;
+    border: 1px solid $form-input-border;
+    outline: 0 none;
+    box-shadow: none;
+    width: 100%;
+    &:focus {
         border-color: $form-input-focus-border;
-        box-shadow:none;
-        label{color: $form-input-focus-border;}
+        box-shadow: none;
+        label {
+            color: $form-input-focus-border;
+        }
     }
 }
 
-input.form-control{padding: 6px 30px 6px 12px}
-
-
-.form-group{position: relative;
-            > .ic-validation{position: absolute;right: 10px;top: 37px;}
-            &.label-float > .ic-validation{top: 14px;}
-            &.invalid{
-                .form-control{border-color: $color-error }
-                .ic-validation{color: $color-error }
-            }
-            &.valid{
-                .ic-validation{color: #6fc93d}
-            }
-            &.focus{
-                label{color: $form-input-focus-border;}
-            }
+input.form-control {
+    padding: 6px 30px 6px 12px
 }
 
-textarea.form-control{resize: none}
+.form-group {
+    position: relative;
+    margin-bottom: 25px;
+    >.ic-validation {
+        position: absolute;
+        right: 10px;
+        top: 37px;
+    }
+    &.invalid {
+        .form-control {
+            border-color: $color-error
+        }
+        .ic-validation {
+            color: $color-error
+        }
+    }
+    &.valid {
+        .ic-validation {
+            color: #6fc93d
+        }
+    }
+    &.focus {
+        label {
+            color: $form-input-focus-border;
+        }
+    }
+}
 
-.label-float{
-    position:relative;
-    label{position: absolute;color: #919191;top: 10px;left: 13px;transition: all .15s ease;cursor: text;}   
-    input{padding-top: 10px;transition: all .15s ease;}
+textarea.form-control {
+    resize: none
+}
 
-    input:focus~label, .filled~label {
+.label-float {
+    position: relative;
+    label {
+        position: absolute;
+        color: #919191;
+        top: 10px;
+        left: 13px;
+        transition: all .15s ease;
+        cursor: text;
+    }
+    input {
+        padding-top: 10px;
+        transition: all .15s ease;
+    }
+    input:focus~label,
+    .filled~label {
         font-size: 10px;
         top: 2px;
     }
 }
 
-.input-icon-container{
-    position:relative;
-    &::after{
+.input-icon-container {
+    position: relative;
+    &::after {
         content: '$';
         position: absolute;
         font-size: 14px;
         top: 11px;
         left: 13px;
     }
-    input.form-control{padding-left: 30px}
+    input.form-control {
+        padding-left: 30px
+    }
 }
 
-
-.dropdown{display:inline-block;
-          .bootstrap-select .dropdown-toggle:focus{outline: 0 none !important;}
-          .bootstrap-select.btn-group .dropdown-toggle .caret{width: auto;height: auto;top: auto; border: 0;display: inline-block;padding: 0 0 0 11px;vertical-align: middle;}
-          .caret:after{content: "\f107"; font-family: FontAwesome;font-size: 18px;color: $form-input-border;}
-          & .open .caret:after{content: "\f106";color: #333}
-
-          .dropdown-toggle{width: 100%;text-transform: none;padding:9px 15px 10px;
-                           &:hover{background: #fff}
-                           &:focus,&:active{border-color: $form-input-focus-border;background: #fff;box-shadow: none;outline:none}
-          }
-          .open .dropdown-toggle{border-color: $form-input-focus-border;background: #fff;box-shadow: none;outline:none}
-          .dropdown-menu{width: 100%;border-color: $form-input-focus-border;border-radius:3px;
-                         a{color: $text-default-color;text-decoration: none;white-space: normal}
-                         a:hover,a:active,a:focus{background: $dropdown-menu-hover-color;outline: 0 none}
-          }
-
-}   
-
-
+.dropdown {
+    display: inline-block;
+    .bootstrap-select .dropdown-toggle:focus {
+        outline: 0 none !important;
+    }
+    .bootstrap-select.btn-group .dropdown-toggle .caret {
+        width: auto;
+        height: auto;
+        top: auto;
+        border: 0;
+        display: inline-block;
+        padding: 0 0 0 11px;
+        vertical-align: middle;
+    }
+    .caret:after {
+        content: "\f107";
+        font-family: FontAwesome;
+        font-size: 18px;
+        color: $form-input-border;
+    }
+    & .open .caret:after {
+        content: "\f106";
+        color: #333
+    }
+    .dropdown-toggle {
+        width: 100%;
+        text-transform: none;
+        padding: 9px 15px 10px;
+        &:hover {
+            background: #fff
+        }
+        &:focus,
+        &:active {
+            border-color: $form-input-focus-border;
+            background: #fff;
+            box-shadow: none;
+            outline: none
+        }
+    }
+    .open .dropdown-toggle {
+        border-color: $form-input-focus-border;
+        background: #fff;
+        box-shadow: none;
+        outline: none
+    }
+    .dropdown-menu {
+        width: 100%;
+        border-color: $form-input-focus-border;
+        border-radius: 3px;
+        a {
+            color: $text-default-color;
+            text-decoration: none;
+            white-space: normal
+        }
+        a:hover,
+        a:active,
+        a:focus {
+            background: $dropdown-menu-hover-color;
+            outline: 0 none
+        }
+    }
+}
 
 .radio {
     margin-bottom: 5px;
@@ -139,14 +233,14 @@ textarea.form-control{resize: none}
     outline: none;
 }
 
-.radio input[type="radio"]:focus + span::before {
+.radio input[type="radio"]:focus+span::before {
     outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px;
     outline: none;
 }
 
-.radio input[type="radio"]:checked + span::after {
+.radio input[type="radio"]:checked+span::after {
     -webkit-transform: scale(1, 1);
     -ms-transform: scale(1, 1);
     -o-transform: scale(1, 1);
@@ -173,12 +267,12 @@ textarea.form-control{resize: none}
     display: none;
 }
 
-.checkbox input[type=checkbox] + span::before {
+.checkbox input[type=checkbox]+span::before {
     font-family: FontAwesome;
     display: inline-block;
 }
 
-.checkbox input[type=checkbox] + span::before {
+.checkbox input[type=checkbox]+span::before {
     content: '';
     position: absolute;
     height: 18px;
@@ -190,7 +284,7 @@ textarea.form-control{resize: none}
     top: 5px;
 }
 
-.checkbox input[type=checkbox]:checked + span::before {
+.checkbox input[type=checkbox]:checked+span::before {
     content: "\f00c";
     color: #3591cf;
     font-size: 13px;

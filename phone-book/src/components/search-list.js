@@ -20,7 +20,7 @@ class SearchList extends Component {
     renderContactLists() {
         if (this.props.contactLists != null) {
             if (this.props.contactLists.length === 0) {
-                return (<li>No Contact Found{<Link  to="/create/new"> Add a Contact</Link>}</li>)
+                return (<li className="error-text text-center">No Contact Found {<Link  to="/create/new"> Add a Contact</Link>}</li>)
             }
             return this.props.contactLists.map((obj) => {
                 return (
