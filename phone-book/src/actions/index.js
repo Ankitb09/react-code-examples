@@ -12,8 +12,10 @@ export function fetchList(str = '') {
     }
 }
 
-export function createList(values) {
-    const request = axios.post(`${ROOT_URL}`, values);
+export function createList(values, callback) {
+    const request = axios.post(`${ROOT_URL}`, values).then(() => {
+        callback()
+    });
     return {
         type: CREATE_LIST,
         payload: request

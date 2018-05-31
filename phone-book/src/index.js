@@ -9,6 +9,7 @@ import reducers from './reducers';
 import './scss/style.css';
 import SearchList from './components/search-list';
 import CreateNew from './components/create-new';
+import ContactDetails from './components/contact-details';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -20,6 +21,7 @@ ReactDOM.render(
             <div>
                 <Switch>
                     <Route path="/create/new" component={CreateNew} />
+                    <Route path="/show/:id" component={ContactDetails} />
                     <Route path="/" component={SearchList} />
                 </Switch>
             </div>

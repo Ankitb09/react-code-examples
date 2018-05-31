@@ -15,7 +15,9 @@ class CreateNew extends Component {
         )
     }
     onSubmit(values) {
-        this.props.createList(values)
+        this.props.createList(values, () => {
+            this.props.history.push('/');
+        })
     }
 
     render() {
