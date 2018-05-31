@@ -18,16 +18,16 @@ class SearchList extends Component {
         this.props.fetchList(e.target.value)
     }
     renderContactLists() {
-        if (this.props.contactLists != null) {
-            if (this.props.contactLists.length === 0) {
-                return (<li className="error-text text-center">No Contact Found {<Link  to="/create/new"> Add a Contact</Link>}</li>)
-            }
+        if (Object.keys(this.props.contactLists).length !== 0) {
             return this.props.contactLists.map((obj) => {
                 return (
                     <li key={obj.id}>{obj.name} <a className="ic-call" href={`tel:${obj.phone}`}><i className="fa fa-phone" aria-hidden="true"></i>
                     </a></li>
                 )
             })
+        }
+        if (this.props.contactLists.length === 0) {
+            return (<li className="error-text text-center">No Contact Found {<Link to="/create/new"> Add a Contact</Link>}</li>)
         }
     }
     render() {

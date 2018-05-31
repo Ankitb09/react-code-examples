@@ -3,5 +3,5 @@ I have used these libraries to achieve Phone Book app.
  - json-server [for making API calls] (https://github.com/typicode/json-server)
  - React Router for routes creation
  - React Redux for managing app states
-
+- update npm by  npm i -g npm
  
