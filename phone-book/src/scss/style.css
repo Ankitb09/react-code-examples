@@ -4,6 +4,15 @@
 *::after {
   box-sizing: border-box; }
 
+.clearfix::before {
+  content: " ";
+  display: table; }
+
+.clearfix::after {
+  clear: both;
+  content: " ";
+  display: table; }
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -833,8 +842,17 @@ textarea.form-control {
   border-top: 1px solid #fff;
   border-bottom: 1px solid #b0b0b0;
   font-size: 15px;
-  overflow: hidden;
-  padding: 10px 15px; }
+  overflow: hidden; }
+  .contact-list li .link-text {
+    padding: 10px;
+    display: inline-block;
+    width: 86%;
+    color: #4e4e4e;
+    text-decoration: none;
+    cursor: pointer; }
+
+.inner-container {
+  padding: 10px; }
 
 .ic-call {
   float: right;
@@ -842,8 +860,8 @@ textarea.form-control {
   color: #fff;
   border-radius: 50%;
   width: 27px;
-  display: inline-block;
   height: 26px;
+  margin: 10px;
   font-size: 15px;
   text-align: center;
   line-height: 25px;

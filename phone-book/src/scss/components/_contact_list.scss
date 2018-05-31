@@ -5,9 +5,17 @@
         border-bottom: 1px solid #b0b0b0;
         font-size: 15px;
         overflow: hidden;
-        padding: 10px 15px;
+        .link-text{
+            padding:10px;
+            display: inline-block;
+            width: 86%;
+            color: #4e4e4e;
+            text-decoration: none;
+            cursor: pointer;
+        }
     }
 }
+.inner-container{padding:10px}
 
 .ic-call {
     float: right;
@@ -15,8 +23,8 @@
     color: #fff;
     border-radius: 50%;
     width: 27px;
-    display: inline-block;
     height: 26px;
+    margin: 10px;
     font-size: 15px;
     text-align: center;
     line-height: 25px;

@@ -25,12 +25,6 @@
       "email": "abc@xyz.com"
     },
     {
-      "name": "Alexa",
-      "phone": "123455",
-      "email": "alexa@test.com",
-      "id": 5
-    },
-    {
       "name": "data",
       "phone": "098763",
       "email": "data@test.com",
@@ -41,12 +35,6 @@
       "phone": "63892020",
       "email": "user@test.com",
       "id": 7
-    },
-    {
-      "name": "Ankit Jain",
-      "phone": "09560668669",
-      "email": "ankit0369.jain@gmail.com",
-      "id": 8
     },
     {
       "name": "carlos",

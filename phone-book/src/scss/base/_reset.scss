@@ -4,7 +4,16 @@
 *::after {
   box-sizing: border-box;
 }
+.clearfix::before{
+  content: " ";
+  display: table
+}
 
+.clearfix::after{
+  clear: both;
+  content: " ";
+  display: table
+}
 html {
   font-family: sans-serif;
   line-height: 1.15;
