@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -19,17 +20,20 @@ class SearchList extends Component {
     }
     renderContactLists() {
         console.log(this.props.contactLists)
-        if (Object.keys(this.props.contactLists).length !== 0) {
-            return this.props.contactLists.map((obj) => {
+        if (Object.keys(this.props.contactLists).length == 0) {
+            return (<li className="error-text text-center">No Contact Found {<Link to="/create/new"> Add a Contact</Link>}</li>)
+
+        } else {
+            return _.map(this.props.contactLists, listElem => {
                 return (
-                    <li key={obj.id}><Link className="link-text" to={`/show/${obj.id}`}>{obj.name}</Link> <a className="ic-call" href={`tel:${obj.phone}`}><i className="fa fa-phone" aria-hidden="true"></i>
+                    <li key={listElem.id}><Link className="link-text" to={`/show/${listElem.id}`}>{listElem.name}</Link> <a className="ic-call" href={`tel:${listElem.phone}`}><i className="fa fa-phone" aria-hidden="true"></i>
                     </a></li>
                 )
             })
         }
-        if (this.props.contactLists.length === 0) {
-            return (<li className="error-text text-center">No Contact Found {<Link to="/create/new"> Add a Contact</Link>}</li>)
-        }
+
+
+
     }
     render() {
         return (

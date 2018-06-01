@@ -6,7 +6,7 @@ export const FETCH_DETAILS = 'fetch_details';
 export const DELETE_POST = 'deletePost';
 
 const ROOT_URL = 'http://localhost:4000/contact'
-export function fetchList(str = '') {
+export function fetchList(str='') {
     const request = axios.get(`${ROOT_URL}?_sort=name&_order=asc&q=${str}`);
     return {
         type: FETCH_LIST,
@@ -33,8 +33,8 @@ export function fetchDetails(id) {
     }
 }
 
-export function deletePost(id,callback) {
-    const request = axios.delete(`${ROOT_URL}/${id}`).then(() => callback());
+export function deletePost(id, callback) {
+    axios.delete(`${ROOT_URL}/${id}`).then(() => callback());
 
     return {
         type: DELETE_POST,

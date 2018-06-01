@@ -25,24 +25,26 @@ class ContactDetails extends Component {
 
         return (
             <div className="container">
-                <div className="inner-container">
-                    <div className="clearfix mtb-10 text-left">
+                <div className="inner-container show-details-container">
+                    <div className="clearfix mb-20 text-left">
                         <Link to="/">&lt; Back</Link>
-                        <button onClick={this.ondeleteClick.bind(this)} className="pull-right"><i className="fa fa-trash" aria-hidden="true"></i>
-                            Delete
+                        <button onClick={this.ondeleteClick.bind(this)} className="pull-right btn btn-primary btn-sm"> <i className="fa fa-trash" aria-hidden="true"></i> Delete
                         </button>
                     </div>
 
-                    <div className="form-group text-center">
-                        <p>{contactDetail.name}</p>
+                    <div className="form-group pt-10">
+                        <p className="person-name">{contactDetail.name}
+                            <a className="ic-call" href={`tel:${contactDetail.phone}`}><i className="fa fa-phone" aria-hidden="true"></i>
+                            </a>
+                        </p>
                     </div>
                     <div className="form-group">
-                        <label>Contact Number</label>
-                        <p>{contactDetail.phone}</p>
+                        <strong>Contact Number: </strong>
+                        <span>{contactDetail.phone}</span>
                     </div>
                     <div className="form-group">
-                        <label>Email</label>
-                        <p>{contactDetail.email}</p>
+                        <strong>Email: </strong>
+                        <span>{contactDetail.email}</span>
                     </div>
                 </div>
             </div>

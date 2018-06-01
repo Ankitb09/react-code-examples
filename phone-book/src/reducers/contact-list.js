@@ -1,4 +1,6 @@
+import _ from 'lodash';
 import { FETCH_LIST, FETCH_DETAILS } from '../actions';
+
 
 export default function (state = {}, action) {
     switch (action.type) {
@@ -9,7 +11,7 @@ export default function (state = {}, action) {
             return newState;
 
         case FETCH_LIST:
-            return action.payload.data;
+            return _.mapKeys(action.payload.data,'id')
         default:
             return state;
     }
