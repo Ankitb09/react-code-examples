@@ -11,6 +11,8 @@
 * [Redux-form](https://github.com/erikras/redux-form) for better Form management and validations.
 * [Redux-promise](https://github.com/redux-utilities/redux-promise) for Middleware.
 * I am using [concurrently](https://www.npmjs.com/package/concurrently) to run app and json-server concurrently.
+* It uses http://localhost:3000/ for app and http://localhost:4000/db for json-server.
+* Although it is an responsive app.But best viewed at viewport of 375px.
  
 
 ### Steps to run:-
