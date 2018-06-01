@@ -20,10 +20,15 @@
 ```sh
 npm i -g npm
 ```
-* After that just type:
+* After that install dependencies by running:
+```sh
+npm install
+```
+* To run the app:
 ```sh
 npm start
 ```
+@ (http://localhost:3000/)
 
 ## Check List or Stories:-
  * [x] Listing all contacts
