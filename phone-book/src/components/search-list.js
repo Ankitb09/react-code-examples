@@ -19,8 +19,7 @@ class SearchList extends Component {
         this.props.fetchList(e.target.value)
     }
     renderContactLists() {
-        console.log(this.props.contactLists)
-        if (Object.keys(this.props.contactLists).length == 0) {
+        if (Object.keys(this.props.contactLists).length === 0) {
             return (<li className="error-text text-center">No Contact Found {<Link to="/create/new"> Add a Contact</Link>}</li>)
 
         } else {

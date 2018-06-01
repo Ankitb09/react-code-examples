@@ -44,7 +44,7 @@ class ContactDetails extends Component {
                     </div>
                     <div className="form-group">
                         <strong>Email: </strong>
-                        <span>{contactDetail.email}</span>
+                        <span><a href={`mailto:${contactDetail.email}`}>{contactDetail.email}</a></span>
                     </div>
                 </div>
             </div>

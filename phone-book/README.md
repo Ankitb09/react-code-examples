@@ -1,3 +1,23 @@
+Hello, 
+
+### I have created a Phone Book app.
+
+### I have used these libraries to achieve Phone Book app.
+    * with [Create React App](https://github.com/facebookincubator/create-react-app)
+    * json-server [for making API calls] (https://github.com/typicode/json-server)
+    * React Router for routes creation and SEO purpose
+    * React Redux for managing app states
+
+### Steps to run:-
+    * Please run following command to update npm:
+    ```sh
+        npm i -g npm
+    ```
+    * After that just type:
+    ```sh
+      npm start
+    ```
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
