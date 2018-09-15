@@ -23,17 +23,6 @@
 			"amount": "990.00"
 		},
 		{
-			"flightNo": "AL-206",
-			"origin": "kolkata",
-			"destination": "mumbai",
-			"time": {
-				"depart": "2017-11-01 08:00:00",
-				"arrive": "2017-11-01 10:30:00"
-			},
-			"date": "2017-11-01 01:02:03",
-			"amount": "990.00"
-		},
-		{
 			"flightNo": "AL-217",
 			"origin": "mumbai",
 			"destination": "bangalore",
