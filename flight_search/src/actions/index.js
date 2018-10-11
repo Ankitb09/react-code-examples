@@ -1,22 +1,30 @@
 
-const ROOT_URL = 'http://localhost:3004/flights'
-export const getFlights = (orig, dest) => {
+const ROOT_URL = 'http://localhost:3004/flights';
 
-    const request = fetch(`${ROOT_URL}?origin=${orig}&destination=${dest}`).then((response) => {
-        return response.json()
-    }).then((resp) => { return JSON.parse(resp) });
-
-    return {
-        type: 'GET_FLIGHTS',
-        data: request
-    }
+const getList = (list) => {
+  return {
+    type: 'GET_FLIGHTS',
+    data: { list }
+  }
 }
 
-function fetchPosts(subreddit) {
-    return dispatch => {
-      dispatch(requestPosts(subreddit))
-      return fetch(`https://www.reddit.com/r/${subreddit}.json`)
-        .then(response => response.json())
-        .then(json => dispatch(receivePosts(subreddit, json)))
-    }
+
+export const loadingFlights = (loading) => ({
+  type: 'LOADING_FLIGHTS',
+  payload: { loading }
+})
+
+
+export function fetchList(orig, dest) {
+  return function (dispatch, getState) {
+    dispatch(loadingFlights(true));
+
+    window.fetch(`${ROOT_URL}?origin=${orig}&destination=${dest}`)
+      .then((resp) => resp.json())
+      .then((list) => {
+
+        dispatch(getList(list))
+        dispatch(loadingFlights(false));
+      });
   }
+}

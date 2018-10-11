@@ -1,7 +1,18 @@
-export default function (state = {}, action) {
+import { combineReducers } from 'redux';
+
+const fetchFligts = (state = {}, action) => {
     switch (action.type) {
         case "GET_FLIGHTS":
-        console.log(action.data)
-            return action.data
+            return action.data;
+
+        default:
+            return state;
     }
 }
+
+
+const rootReducer = combineReducers({
+    fetchFligts
+});
+
+export default rootReducer;

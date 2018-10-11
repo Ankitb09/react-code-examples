@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getFlights } from '../actions';
+import { fetchList } from '../actions';
 
 class Search extends Component {
     constructor(props) {
@@ -26,10 +26,11 @@ class Search extends Component {
     }
     onFormSubmit(e) {
         e.preventDefault();
-        this.props.getFlights(this.state.originCity, this.state.destCity);
+        this.props.fetchList(this.state.originCity, this.state.destCity);
     }
 
     render() {
+        console.log(this.props)
         const { originCity, destCity, depDate, returnDate, passengerNo } = this.state;
         return (
             <div className="container">
@@ -69,10 +70,17 @@ class Search extends Component {
                         </form>
                     </div>
                 </div>
+
+
+
             </div>
         )
     }
 }
 
-
-export default connect(null, { getFlights })(Search);
+function mapStateToProps(state) {
+    return {
+        dataa: state.fetchFligts
+    }
+}
+export default connect(mapStateToProps, { fetchList })(Search);
