@@ -13,20 +13,18 @@ class Search extends Component {
             passengerNo: '',
             returningTab: false
         };
-
-        this.formValues = this.formValues.bind(this);
-        this.onFormSubmit = this.onFormSubmit.bind(this);
     }
 
 
-    formValues(e) {
+    formValues = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
-    onFormSubmit(e) {
+    onFormSubmit = (e) => {
         e.preventDefault();
         this.props.fetchList(this.state.originCity, this.state.destCity);
+
     }
 
     render() {
@@ -70,9 +68,6 @@ class Search extends Component {
                         </form>
                     </div>
                 </div>
-
-
-
             </div>
         )
     }
@@ -80,7 +75,7 @@ class Search extends Component {
 
 function mapStateToProps(state) {
     return {
-        dataa: state.fetchFligts
+        dataa: state.departList
     }
 }
 export default connect(mapStateToProps, { fetchList })(Search);
