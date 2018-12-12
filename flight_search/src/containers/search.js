@@ -24,7 +24,6 @@ class Search extends Component {
     onFormSubmit = (e) => {
         e.preventDefault();
         this.props.fetchList(this.state.originCity, this.state.destCity);
-
     }
 
     render() {
