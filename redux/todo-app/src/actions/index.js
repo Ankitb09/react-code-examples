@@ -8,14 +8,14 @@ export function addTodos(text) {
     }
 }
 
-export function toggleTodos(id){
+export function toggleTodos(id) {
     return {
         type: 'TOGGLE_TODO',
         id
     }
 }
 
-export function visibilityFilter(filter){
+export function visibilityFilter(filter) {
     return {
         type: 'SET_VISIBILITY_FILTER',
         filter
