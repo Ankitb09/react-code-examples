@@ -17,6 +17,9 @@
             document.getElementById('increment').addEventListener('click', function () {
                 store.dispatch({ type: 'INCREMENT' })
             });
+            document.getElementById('decrement').addEventListener('click', function () {
+                store.dispatch({ type: 'DECREMENT' })
+            });
         }
 
 
@@ -24,7 +27,7 @@
             switch (action.type) {
                 case "INCREMENT":
                     return state + 1;
-                case "Decrement":
+                case "DECREMENT":
                     return state - 1;
                 default:
                     return state;
@@ -35,9 +38,8 @@
         function render() {
             var elem = document.getElementById('value');
             elem.innerHTML = store.getState();
-
         }
-        store.subscribe(render)
+        store.subscribe(render);
     </script>
 </body>
 
