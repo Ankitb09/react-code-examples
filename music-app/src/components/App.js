@@ -8,13 +8,13 @@ export default class App extends Component {
 
     constructor(props) {
         super(props);
-
         this.setState = {
             currentStep: 1
         }
     }
 
     renderSteps = (step) => {
+
         switch (step) {
             case 1:
                 return this.step1()
@@ -44,11 +44,32 @@ export default class App extends Component {
         )
     }
 
+    handleBack = () => {
+
+    }
+
+    handleNext = () => {
+        if (this.validate()) {
+            this.setState(() => ({
+                currentStep: this.state.currentStep + 1
+            }))
+        }
+
+    }
+    validate = () => {
+        return true
+    }
+
     render() {
+       
         return (
             <div>
                 <ProgressBar />
-                {this.renderSteps(2)}
+                {this.renderSteps()}
+                <div>
+                    <button onClick={this.handleBack}>Back</button>
+                    <button onClick={this.handleNext}>Next</button>
+                </div>
             </div>
         )
     }
