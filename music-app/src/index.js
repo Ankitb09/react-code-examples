@@ -2,7 +2,6 @@ import React from 'react';
 import { render } from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import App from './components/App'
 import rootReducer from './reducers'
 
@@ -31,15 +30,7 @@ const store = createStore(rootReducer, initState);
 
 render(
     <Provider store={store}>
-        <BrowserRouter>
-            <div>
-                <Switch>
-                    <Route path="/create/new" component={CreateNew} />
-                    <Route path="/show/:id" component={ContactDetails} />
-                    <Route path="/" component={SearchList} />
-                </Switch>
-            </div>
-        </BrowserRouter>
+        <App/>
     </Provider>,
     document.getElementById('root')
 )
