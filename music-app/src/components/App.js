@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SelectSubscription from '../containers/SelectSubscription';
 import UserDetails from '../containers/UserDetails';
 import CardDetails from '../containers/CardDetails';
-
+import ProgressBar from './ProgressBar'
 
 export default class App extends Component {
 
@@ -47,7 +47,8 @@ export default class App extends Component {
     render() {
         return (
             <div>
-                {this.renderSteps()}
+                <ProgressBar />
+                {this.renderSteps(2)}
             </div>
         )
     }
