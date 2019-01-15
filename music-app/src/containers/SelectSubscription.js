@@ -13,12 +13,6 @@ class SelectSubscription extends Component {
         }
     }
 
-    isComponentValid = () => {
-        return true;
-    }
-
-    validate = () => this.props.validationHandler(this.isComponentValid());
-
     next = () => {
         this.props.next(1)
         this.props.subscriptionHandler(this.state)
@@ -28,7 +22,7 @@ class SelectSubscription extends Component {
         let { storageAmount, payNow, duration } = this.state;
         let price = storageAmount * duration * 2;
         if (payNow) {
-            return price = price - Math.floor(price * 10 / 100)
+            return price = price - (price * 10 / 100)
         }
         else {
             return price;

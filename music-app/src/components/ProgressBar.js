@@ -1,26 +1,19 @@
 import React from 'react';
 
-const ProgressBar = () => {
+const ProgressBar = (props) => {
+    const steps = ["SELECT SUBSCRIPTION", "USER DETAILS", "PAYMENT DETAILS", "FINISHED"];
+
+    const ul = steps.map((item, i) => {
+        return (<li key={i} className={i + 1 === props.stepNumber ? 'active' : ''}>
+            <i className="icon-round">{i + 1}</i>
+            <span>{item}</span>
+        </li>)
+    })
+
     return (
-        <ul className="progressBar">
-            <li className="active">
-                <i className="icon-round">1</i>
-                <span>SELECT SUBSCRIPTION</span>
-            </li>
-            <li>
-                <i className="icon-round">2</i>
-                <span>USER DETAILS</span>
-            </li>
-            <li>
-                <i className="icon-round">3</i>
-                <span>PAYMENT DETAILS</span>
-            </li>
-            <li>
-                <i className="icon-round">4</i>
-                <span>FINISHED</span>
-            </li>
-        </ul>
+        <ul className="progressBar">{ul}</ul>
     )
+
 }
 
 export default ProgressBar
