@@ -8,14 +8,14 @@ export default class App extends Component {
 
     constructor(props) {
         super(props);
-        this.setState = {
-            currentStep: 1
+        this.state = {
+            currentStep: 1,
         }
     }
 
-    renderSteps = (step) => {
-
-        switch (step) {
+    renderSteps = () => {
+        let { currentStep } = this.state;
+        switch (currentStep) {
             case 1:
                 return this.step1()
             case 2:
@@ -29,46 +29,42 @@ export default class App extends Component {
 
     step1 = () => {
         return (
-            <SelectSubscription />
+            <SelectSubscription next={this.handleNext} />
         )
     }
 
     step2 = () => {
         return (
-            <UserDetails />
+            <UserDetails next={this.handleNext} />
         )
     }
     step3 = () => {
         return (
-            <CardDetails />
+            <CardDetails next={this.handleNext} />
         )
     }
 
     handleBack = () => {
-
+        this.setState((state) => {
+            return { currentStep: state.currentStep - 1 }
+        });
     }
 
-    handleNext = () => {
-        if (this.validate()) {
-            this.setState(() => ({
-                currentStep: this.state.currentStep + 1
-            }))
-        }
-
-    }
-    validate = () => {
-        return true
+    handleNext = (val) => {
+        console.log(val)
+        this.setState((state) => {
+            return { currentStep: state.currentStep + 1 }
+        });
     }
 
     render() {
-       
         return (
-            <div>
-                <ProgressBar />
-                {this.renderSteps()}
-                <div>
-                    <button onClick={this.handleBack}>Back</button>
-                    <button onClick={this.handleNext}>Next</button>
+            <div className="container">
+                <div className="row">
+                    <div className="col-sm-12">
+                        <ProgressBar />
+                        {this.renderSteps()}
+                    </div>
                 </div>
             </div>
         )

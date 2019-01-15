@@ -8,11 +8,18 @@ export default class CardDetails extends Component {
 
     }
 
+    next = ()=>{
+        this.props.next(3)
+    }
+
     render() {
         return (
-            <div>
-                CardDetails
-            </div>
+            <form>
+                <input type="text"/>
+                <input type="text"/>
+                <input type="text"/>
+                <button type="button" onClick={this.next}>Next</button>
+            </form>
         )
     }
 }

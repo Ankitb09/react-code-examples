@@ -7,11 +7,17 @@ export default class UserDetails extends Component {
 
     }
 
+    next = ()=>{
+        this.props.next(2)
+    }
+
     render() {
         return (
-            <div>
-                UserDetails
-            </div>
+            <form>
+                <input type="text"/>
+                <input type="text"/>
+                <button type="button" onClick={this.next}>Next</button>
+            </form>
         )
     }
 }
