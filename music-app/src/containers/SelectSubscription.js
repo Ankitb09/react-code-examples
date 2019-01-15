@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import { addUserDetails } from '../actions/';
 
 class SelectSubscription extends Component {
 
@@ -20,6 +21,7 @@ class SelectSubscription extends Component {
 
     next = () => {
         this.props.next(1)
+        this.props.subscriptionHandler(this.state)
     }
 
     priceCalculator = () => {
@@ -91,7 +93,7 @@ class SelectSubscription extends Component {
                             </div>
                             <div className="form-check form-check-inline">
                                 <label className="form-check-label" htmlFor="gbRadio5">
-                                    <input className="form-check-input" type="radio" name="durationRadio" id="gbRadio5" value="30" onChange={this.handleOptions} />
+                                    <input className="form-check-input" type="radio" name="storageAmount" id="gbRadio5" value="30" onChange={this.handleOptions} />
                                     30 GB
                                 </label>
                             </div>
@@ -131,3 +133,12 @@ class SelectSubscription extends Component {
     }
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        subscriptionHandler: (obj) => {
+            dispatch(addUserDetails(obj))
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(SelectSubscription);

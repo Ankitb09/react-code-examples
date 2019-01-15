@@ -62,7 +62,7 @@ export default class App extends Component {
             <div className="container">
                 <div className="row">
                     <div className="col-sm-12">
-                        <ProgressBar />
+                        <ProgressBar stepNumber={this.state.currentStep}/>
                         {this.renderSteps()}
                     </div>
                 </div>
