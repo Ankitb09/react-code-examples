@@ -69,14 +69,14 @@ export default class PastMonths extends Component {
 
     render() {
         if (!this.props.term) {
-            return <div>Enter Some Keyword</div>;
+            return <div className="text-danger">Enter Some Keyword</div>;
         }
         return (
             <div>
                 <div className="tab-pane" role="tabpanel" aria-labelledby="pills-contact-tab">
                     {this.state.prevMonthData ?
                         <ReactHighcharts config={this.calcMonthlyData()}></ReactHighcharts> :
-                        <div>{this.state.noResult}</div>
+                        <div className="text-danger">{this.state.noResult}</div>
                     }
                 </div>
             </div>

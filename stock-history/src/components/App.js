@@ -88,7 +88,7 @@ export default class App extends Component {
                 <div className="row">
                     <div className="col-sm-12">
                         <h2 className="mt-4">Stock History</h2>
-                        <h4 className="mb-5">You can search for stock history using the search box</h4>
+                        <h4 className="mb-5">You can search for stock history using stock symbol</h4>
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group row">
                                 <div className="col-sm-11">
