@@ -1,0 +1,31 @@
+.progressBar {
+          margin: 30px 0;
+          display: flex;
+          justify-content: space-around;
+          font-size: 12px;
+          li {
+                    color: #c1c1c1;
+                    .icon-round {
+                              background-color: #c1c1c1;
+                    }
+                    &.active{
+                        color: #000;
+                        .icon-round {
+                            background-color: #ffa400;
+                  }
+                    }
+          }
+}
+
+.icon-round {
+          display: inline-block;
+          vertical-align: middle;
+          height: 20px;
+          width: 20px;
+          color: #fff;
+          margin-right: 8px;
+          text-align: center;
+          line-height: 20px;
+          background: #ffa400;
+          border-radius: 50%;
+}

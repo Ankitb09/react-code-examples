@@ -5,28 +5,31 @@ import { Provider } from 'react-redux';
 import App from './components/App'
 import rootReducer from './reducers'
 
-var initState = {
-    user: [
-        {
-            id: 1,
-            fName: '',
-            lName: '',
-            email: '',
-            address: ''
-        }
-    ],
-    subscription: {
-        Duration: 12,
-        gbAmount: 5,
-        upFrontpayment: false
-    },
-    cCard: {
-        number: '',
-        expiry: ''
-    }
-}
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './stylesheets/style.scss';
 
-const store = createStore(rootReducer, initState);
+// var initState = {
+//     user: [
+//         {
+//             id: 1,
+//             fName: '',
+//             lName: '',
+//             email: '',
+//             address: ''
+//         }
+//     ],
+//     subscription: {
+//         Duration: 12,
+//         gbAmount: 5,
+//         upFrontpayment: false
+//     },
+//     cCard: {
+//         number: '',
+//         expiry: ''
+//     }
+// }
+
+const store = createStore(rootReducer);
 
 render(
     <Provider store={store}>
