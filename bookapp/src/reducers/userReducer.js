@@ -3,7 +3,6 @@ import * as actionType from '../actions/actionTypes';
 const intialState = {
     userId: '',
     isLoading: false,
-    booksData: '',
     error: ''
 };
 
@@ -12,9 +11,9 @@ const userReducer = (state = intialState, action) => {
         case actionType.LOGIN:
             return { ...state, isLoading: true };
         case actionType.LOGIN_SUCCESS:
-            return { ...state, userId: action.payload, isLoading: false }
+            return { ...state, userId: action.payload.user_id, isLoading: false , isAuthenticated: true};
         case actionType.LOGIN_ERROR:
-            return { ...state, error: action.error, isLoading: false };
+            return { ...state, error: action.error, isLoading: false , isAuthenticated: false};
         default:
             return state;
     }

@@ -10,7 +10,7 @@ export const loginSuccess = (json) => {
     console.log(json);
     return {
         type: actionType.LOGIN_SUCCESS,
-        payload: json.data.user_id
+        payload: json.data
     }
 };
 
