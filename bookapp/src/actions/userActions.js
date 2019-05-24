@@ -5,7 +5,6 @@ export const login = () => ({
     type: actionType.LOGIN,
 });
 
-
 export const loginSuccess = (json) => {
     console.log(json);
     return {

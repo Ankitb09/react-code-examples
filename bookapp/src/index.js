@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 
 import ProtectedRoute from './containers/ProtectedRoute';
-import BookList from './components/BookList';
+import Discovery from './containers/Discovery';
 import App from './components/App';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
@@ -15,7 +15,8 @@ const Root = ({ store }) => (
     <Provider store={store}>
         <BrowserRouter>
             <Switch>
-                <Route exact path="/app" component={ProtectedRoute(BookList)} />
+                <Route exact path="/app" component={ProtectedRoute(Discovery)} />
+                
                 <Route exact path="/" component={App} />
                 <Route path="*" component={() => "404 NOT FOUND"} />
             </Switch>

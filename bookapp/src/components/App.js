@@ -1,9 +1,9 @@
 import React from 'react';
 import Login from '../containers/login';
 
-const App = ()=>{
+const App = (props)=>{
     return(
-        <Login/>
+        <Login history={props.history}/>
     )
 }
 
