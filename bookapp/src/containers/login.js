@@ -6,7 +6,7 @@ class Login extends Component {
 
     handleClick = () => {
         this.props.requestLogin().then((res) => {
-            this.props.history.push('/app')
+            this.props.history.push('/discovery')
         });
     }
     render() {
