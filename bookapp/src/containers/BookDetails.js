@@ -1,12 +1,49 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getUserType, subscribeUser } from '../actions/userActions';
 
-export default class BookDetails extends Component {
-    componentDidMount() {
+class BookDetails extends Component {
+    constructor(props) {
+        super(props)
     }
-    render() {
-        console.log(this.props)
+
+    componentDidMount() {
+        this.props.getUserType()
+    }
+
+    handleSubscription = () => {
+        this.props.subscribeUser()
+    }
+
+    getBookDetails = () => {
+        let { bookList, accessType } = this.props;
+        let bookDetils = bookList[this.props.match.params.id];
+        let isfreeUser = accessType === "free" ? true : false;
         return (
-            <div>BookDetail</div>
+            <div>
+                <h1>{bookDetils.title}</h1>
+                <div className={isfreeUser ? "hide-content" : ""}>
+                    <p>{bookDetils.content}</p>
+
+                    {isfreeUser && <div className="text-center">
+                        <button onClick={this.handleSubscription}>Subscribe</button>
+                    </div>}
+                </div>
+            </div>)
+    }
+
+    render() {
+        return (
+            <div>{this.getBookDetails()}</div>
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        accessType: state.user.accessType,
+        bookList: state.discovery.bookList
+    }
+}
+
+export default connect(mapStateToProps, { getUserType ,subscribeUser})(BookDetails);

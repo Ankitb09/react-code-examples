@@ -4,7 +4,7 @@ const intitalState = {
     categories: [],
     bookList: {},
     selectedCategory: "",
-    selectedBook: "",
+    selectedBookId: "",
     error: "",
     isLoading: false
 }

@@ -20,7 +20,7 @@ export const fetchBooksSuccess = (json) => {
     console.log(json);
     return {
         type: actionType.FETCH_BOOKLIST_SUCCESS,
-        payload: json
+        payload: json,
     }
 };
 

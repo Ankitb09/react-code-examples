@@ -1,20 +1,29 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { requestLogin } from '../actions/userActions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { requestLogin } from "../actions/userActions";
+import styled from "styled-components";
+import {
+  Container,
+  PrimaryButton,
+} from "../CommonStyles";
 
 class Login extends Component {
+  handleClick = () => {
+    this.props.requestLogin().then(res => {
+      this.props.history.push("/books");
+    });
+  };
 
-    handleClick = () => {
-        this.props.requestLogin().then((res) => {
-            this.props.history.push('/discovery')
-        });
-    }
-    render() {
-        return (
-            <button className="" onClick={this.handleClick}>Login</button>
-        )
-    }
+  render() {
+    return (
+      <Container>
+        <PrimaryButton onClick={this.handleClick}>Login</PrimaryButton>
+      </Container>
+    );
+  }
 }
 
-
-export default connect(null, { requestLogin })(Login)
+export default connect(
+  null,
+  { requestLogin }
+)(Login);
