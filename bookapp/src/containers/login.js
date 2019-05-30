@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { requestLogin } from "../actions/userActions";
 import styled from "styled-components";
+
 import {
   Container,
   PrimaryButton,
@@ -14,6 +15,12 @@ class Login extends Component {
     });
   };
 
+  componentDidMount() {
+    if (this.props.isAuthenticated) {
+      this.props.history.push("/books")
+    }
+  }
+
   render() {
     return (
       <Container>
@@ -23,7 +30,11 @@ class Login extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.user.isAuthenticated
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   { requestLogin }
 )(Login);

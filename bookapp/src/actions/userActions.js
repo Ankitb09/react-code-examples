@@ -52,5 +52,5 @@ export const getUserType = () => dispatch => {
 };
 
 export const subscribeUser = () => ({
-    type: actionType.SUBSCRIBE_USER,
+    type: actionType.USER_SUBSCRIBE,
 })

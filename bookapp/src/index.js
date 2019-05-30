@@ -14,7 +14,26 @@ import BookDetails from "./containers/BookDetails";
 
 import { GlobalStyle } from "./CommonStyles";
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const localStorageMiddleware = ({ getState }) => {
+  return next => action => {
+    const result = next(action);
+    if (action.type.includes("LOGIN") || action.type.includes("USER")) {
+      console.log("action", action);
+      localStorage.setItem("user", JSON.stringify(getState()))
+    }
+    return result;
+  };
+};
+
+const reHydrateStore = () => {
+  const data = localStorage.getItem("user");
+  if (data) {
+    return JSON.parse(data);
+  }
+  return undefined;
+};
+
+const store = createStore(rootReducer, reHydrateStore(), applyMiddleware(thunk, localStorageMiddleware));
 const Root = ({ store }) => (
   <Provider store={store}>
     <BrowserRouter>

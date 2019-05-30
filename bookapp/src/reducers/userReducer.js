@@ -22,7 +22,7 @@ const userReducer = (state = intialState, action) => {
             return { ...state, accessType: action.accessType, isLoading: false };
         case actionType.USER_TYPE_ERROR:
             return { ...state, error: action.error, isLoading: false };
-        case actionType.SUBSCRIBE_USER:
+        case actionType.USER_SUBSCRIBE:
             return { ...state, accessType: 'paid' }
         default:
             return state;

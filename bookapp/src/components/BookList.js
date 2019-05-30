@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { UL, LI } from "../CommonStyles";
 
 const Card = styled.div`
-
 `;
 
 const CardList = styled(UL)`

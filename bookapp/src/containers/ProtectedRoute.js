@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 const ProtectedRoute = (ComposedComponent) => {
     class Authenticate extends Component {
         render() {
+            debugger;
             let { isAuthenticated } = this.props;
             console.log(this.props)
             return (
