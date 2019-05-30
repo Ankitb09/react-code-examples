@@ -9,6 +9,8 @@ const Card = styled.div`
 
 const CardList = styled(UL)`
     display:flex;
+    flex-wrap:wrap;
+    flex-direction: forward;
 `;
 const CardListItem = styled(LI)`
 `;
