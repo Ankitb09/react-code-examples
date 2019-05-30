@@ -9,7 +9,7 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 import ProtectedRoute from "./containers/ProtectedRoute";
 import Header from "./components/Header";
 import Discovery from "./containers/Discovery";
-import App from "./components/App";
+import Login from "./containers/login";
 import BookDetails from "./containers/BookDetails";
 
 import { GlobalStyle } from "./CommonStyles";
@@ -19,7 +19,7 @@ const localStorageMiddleware = ({ getState }) => {
     const result = next(action);
     if (action.type.includes("LOGIN") || action.type.includes("USER")) {
       console.log("action", action);
-      localStorage.setItem("user", JSON.stringify(getState()))
+      localStorage.setItem("user", JSON.stringify(getState()));
     }
     return result;
   };
@@ -33,7 +33,11 @@ const reHydrateStore = () => {
   return undefined;
 };
 
-const store = createStore(rootReducer, reHydrateStore(), applyMiddleware(thunk, localStorageMiddleware));
+const store = createStore(
+  rootReducer,
+  reHydrateStore(),
+  applyMiddleware(thunk, localStorageMiddleware)
+);
 const Root = ({ store }) => (
   <Provider store={store}>
     <BrowserRouter>
@@ -42,7 +46,7 @@ const Root = ({ store }) => (
       <Switch>
         <Route exact path="/books" component={ProtectedRoute(Discovery)} />
         <Route path="/books/:id" component={ProtectedRoute(BookDetails)} />
-        <Route exact path="/" component={App} />
+        <Route exact path="/" component={Login} />
         <Route path="*" component={() => "404 NOT FOUND"} />
       </Switch>
     </BrowserRouter>
