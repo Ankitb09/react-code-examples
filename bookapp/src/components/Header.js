@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import styled from "styled-components";
-import { Container, SecondryButton } from "../CommonStyles";
+import { Container, TextSpan } from "../CommonStyles";
+import logo from "../images/blinkist-sprites.png";
 
 // ****** App styles: starts here ********
 const PageHeader = styled.header`
@@ -10,11 +11,19 @@ const PageHeader = styled.header`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
   position: relative;
   z-index: 9;
+  display: flex;
+`;
+
+const HeaderContainer = styled(Container)`
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  display: flex;
 `;
 
 const Logo = styled.a`
   display: inline-block;
-  background-image: url("../images/blinkist-sprites.png");
+  background-image: url(${logo});
   background-position: 0 -273px;
   background-size: 135px;
   width: 134px;
@@ -34,10 +43,10 @@ class Header extends Component {
     return (
       <div>
         <PageHeader>
-          <Container>
+          <HeaderContainer>
             <Logo />
-            <SecondryButton>Login</SecondryButton>
-          </Container>
+            <TextSpan>Login</TextSpan>
+          </HeaderContainer>
         </PageHeader>
       </div>
     );

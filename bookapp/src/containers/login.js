@@ -6,6 +6,13 @@ import { Redirect } from "react-router-dom";
 import styled from "styled-components";
 import { Container, PrimaryButton } from "../CommonStyles";
 
+const LoginContainer = styled(Container)`
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:70vh;
+`;
+
 class Login extends Component {
   componentDidMount() {
     if (this.props.isAuthenticated) {
@@ -21,9 +28,9 @@ class Login extends Component {
 
   render() {
     return (
-      <Container>
-        <PrimaryButton onClick={this.handleClick}>Login</PrimaryButton>
-      </Container>
+      <LoginContainer>
+        <PrimaryButton onClick={this.handleClick}>Log in</PrimaryButton>
+      </LoginContainer>
     );
   }
 }

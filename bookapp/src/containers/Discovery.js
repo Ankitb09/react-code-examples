@@ -9,8 +9,15 @@ import BookList from "../components/BookList";
 import CategoryList from "../components/CategoryList";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import {Container} from "../CommonStyles";
+import { Container } from "../CommonStyles";
 
+const LeftPanel = styled.div`
+  flex: 1 1 auto;
+`;
+
+const RightPanel = styled.div`
+  flex: 3 1 auto;
+`;
 
 class Discovery extends Component {
   componentDidMount() {
@@ -40,19 +47,19 @@ class Discovery extends Component {
   render() {
     let { loadStatus } = this.props;
     return (
-      <Container>
+      <div>
         {!loadStatus && (
-          <div style={{ display: "flex" }}>
-            <div className="left-panel">
+          <Container>
+            <LeftPanel>
               <CategoryList
                 categories={this.props.categories}
                 filterFn={this.handleFilter}
               />
-            </div>
-            <div className="right-panel">{this.renderBooks()}</div>
-          </div>
+            </LeftPanel>
+            <RightPanel>{this.renderBooks()}</RightPanel>
+          </Container>
         )}
-      </Container>
+      </div>
     );
   }
 }

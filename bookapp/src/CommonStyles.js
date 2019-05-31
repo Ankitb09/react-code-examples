@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
     height:100%;
     background: #f8f8f8;    
     color: #343434;
+  
     font-family: 'Source Sans Pro', 'Trebuchet MS', Helvetica, sans-serif;
   }
   html, body, figure {
@@ -69,6 +70,8 @@ export const TextStrong = styled.strong`
 export const Container = styled.div`
   max-width: 1140px;
   margin: 0 auto;
+  width:100%;
+  display:flex;
 `;
 
 export const UL = styled.ul`
@@ -78,7 +81,7 @@ export const UL = styled.ul`
 
 export const LI = styled.li`
   line-height: 2;
-  font-weight : ${props => (props.semiBold ? 500 : 400)};
+  font-weight : ${props => (props.semiBold ? 600 : 400)};
 `;
 
 export const PrimaryButton = styled.button`
@@ -87,7 +90,7 @@ export const PrimaryButton = styled.button`
   border-radius: 2px;
   color: #fff;
   display: inline-block;
-  font-family: "CeraPRO";
+  font-family: "Montserrat";
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.25;
@@ -96,12 +99,7 @@ export const PrimaryButton = styled.button`
   text-decoration: none;
   outline: none;
   min-width: 150px;
+  cursor:pointer;
 `;
 
-export const SecondryButton = styled.button`
-  ${PrimaryButton}
-  background: none;
-  border: 0 none;
-  float: right;
-`;
 // some global / common styles : ends
