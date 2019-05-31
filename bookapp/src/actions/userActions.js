@@ -5,13 +5,10 @@ export const login = () => ({
     type: actionType.LOGIN,
 });
 
-export const loginSuccess = (json) => {
-    console.log(json);
-    return {
-        type: actionType.LOGIN_SUCCESS,
-        payload: json.data
-    }
-};
+export const loginSuccess = (json) => ({
+    type: actionType.LOGIN_SUCCESS,
+    payload: json.data
+});
 
 export const loginFailure = (error) => ({
     type: actionType.LOGIN_ERROR,

@@ -11,7 +11,7 @@ const CardList = styled(UL)`
   flex-direction: forward;
   justify-content:space-around;
 `;
-const CardListItem = styled.li`
+const CardListItem = styled(LI)`
   list-style: none;
   flex: 22%;
   max-width: 22%;

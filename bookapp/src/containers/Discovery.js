@@ -7,7 +7,6 @@ import {
 import { connect } from "react-redux";
 import BookList from "../components/BookList";
 import CategoryList from "../components/CategoryList";
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { Container } from "../CommonStyles";
 
@@ -21,10 +20,10 @@ const RightPanel = styled.div`
 
 class Discovery extends Component {
   componentDidMount() {
-    if (this.props.categories.length == 0) {
+    if (this.props.categories.length === 0) {
       this.props.requestCategories();
     }
-    if (Object.keys(this.props.bookList).length == 0) {
+    if (Object.keys(this.props.bookList).length === 0) {
       this.props.requestBookList();
     }
   }
