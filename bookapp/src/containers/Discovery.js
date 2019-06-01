@@ -10,6 +10,8 @@ import CategoryList from "../components/CategoryList";
 import styled from "styled-components";
 import { Container } from "../CommonStyles";
 
+import Loader from "../components/Loader";
+
 const LeftPanel = styled.div`
   flex: 1 1 auto;
 `;
@@ -45,9 +47,12 @@ class Discovery extends Component {
 
   render() {
     let { loadStatus } = this.props;
+    console.log(this.props)
     return (
       <div>
-        {!loadStatus && (
+        {loadStatus > 0 ? (
+          <Loader />
+        ) : (
           <Container>
             <LeftPanel>
               <CategoryList

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Route, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
@@ -23,7 +22,7 @@ const ProtectedRoute = ComposedComponent => {
     isAuthenticated: PropTypes.bool.isRequired
   };
   const mapStateToProps = state => ({
-      isAuthenticated: state.user.isAuthenticated
+    isAuthenticated: state.user.isAuthenticated
   });
 
   return connect(

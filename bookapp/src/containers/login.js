@@ -2,15 +2,16 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { requestLogin } from "../actions/userActions";
 import PropTypes from "prop-types";
-import { Redirect } from "react-router-dom";
 import styled from "styled-components";
 import { Container, PrimaryButton } from "../CommonStyles";
 
+import Loader from "../components/Loader";
+
 const LoginContainer = styled(Container)`
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
 `;
 
 class Login extends Component {
@@ -27,7 +28,9 @@ class Login extends Component {
   };
 
   render() {
-    return (
+    return this.props.isLoading ? (
+      <Loader />
+    ) : (
       <LoginContainer>
         <PrimaryButton onClick={this.handleClick}>Log in</PrimaryButton>
       </LoginContainer>
@@ -39,7 +42,8 @@ Login.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired
 };
 const mapStateToProps = state => ({
-  isAuthenticated: state.user.isAuthenticated
+  isAuthenticated: state.user.isAuthenticated,
+  isLoading: state.user.isLoading
 });
 
 export default connect(

@@ -7,7 +7,7 @@ export const login = () => ({
 
 export const loginSuccess = (json) => ({
     type: actionType.LOGIN_SUCCESS,
-    payload: json.data
+    payload: btoa(json.data.user_id)
 });
 
 export const loginFailure = (error) => ({

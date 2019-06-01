@@ -18,17 +18,16 @@ const localStorageMiddleware = ({ getState }) => {
   return next => action => {
     const result = next(action);
     if (action.type.includes("LOGIN") || action.type.includes("USER")) {
-      console.log("action", action);
-      localStorage.setItem("user", JSON.stringify(getState()));
+      sessionStorage.setItem("user", JSON.stringify(getState().user));
     }
     return result;
   };
 };
 
 const reHydrateStore = () => {
-  const data = localStorage.getItem("user");
+  const data = sessionStorage.getItem("user");
   if (data) {
-    return JSON.parse(data);
+    return {user: JSON.parse(data)}
   }
   return undefined;
 };
