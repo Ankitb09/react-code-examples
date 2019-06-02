@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getUserType, subscribeUser } from "../actions/userActions";
 import { requestSelectedBook } from "../actions/bookDetailsActions";
@@ -55,15 +56,20 @@ class BookDetails extends Component {
 
   render() {
     return (
-      <div>{this.props.isLoading > 0 ? <Loader /> : this.getBookDetails()}</div>
+      <div>{this.props.isLoading ? <Loader /> : this.getBookDetails()}</div>
     );
   }
 }
 
+BookDetails.propTypes = {
+  accessType: PropTypes.string.isRequired,
+  bookListPremium: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool
+};
+
 const mapStateToProps = state => {
   return {
     accessType: state.user.accessType,
-    selectedBook: state.discovery.selectedBook,
     bookListPremium: state.bookDetails.bookListPremium,
     isLoading: state.bookDetails.isLoading
   };
