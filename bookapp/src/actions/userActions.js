@@ -28,7 +28,6 @@ export const userType = () => ({
 });
 
 export const userTypeSuccess = (json) => {
-    console.log(json);
     return {
         type: actionType.USER_TYPE_SUCCESS,
         accessType: json.data.access_type
