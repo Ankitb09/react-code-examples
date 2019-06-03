@@ -3,7 +3,7 @@ import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import * as bookDetailActions from "../bookDetailsActions";
 import * as actionsTypes from "../actionTypes";
-import bookDetails from "../../__mocks__/bookDetails";
+import bookDetailsData from "../../__mocks__/bookDetailsData";
 
 
 const middlewares = [thunk];
@@ -17,12 +17,12 @@ test("Retrieve Book details", async () => {
 });
 
   mockAxios.get.mockImplementationOnce(() =>
-    Promise.resolve({ data: bookDetails })
+    Promise.resolve({ data: bookDetailsData })
   );
 
   const expectedActions = [
     { type: actionsTypes.FETCH_SELECTED_BOOK },
-    { type: actionsTypes.FETCH_SELECTED_BOOK_SUCCESS, payload: bookDetails }
+    { type: actionsTypes.FETCH_SELECTED_BOOK_SUCCESS, payload: bookDetailsData }
   ];
 
   // Using async/await here instead of the 'then' cuz its cleaner
