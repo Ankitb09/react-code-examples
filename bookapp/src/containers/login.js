@@ -12,6 +12,15 @@ const LoginContainer = styled(Container)`
   justify-content: center;
   align-items: center;
   height: 70vh;
+  flex-direction: column;
+`;
+
+const Heading = styled.h1`
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #8155FB;
+    font-family:'Montserrat', sans-serif;
 `;
 
 class Login extends Component {
@@ -32,6 +41,7 @@ class Login extends Component {
       <Loader />
     ) : (
       <LoginContainer>
+        <Heading>Login into BookApp</Heading>
         <PrimaryButton onClick={this.handleClick}>Log in</PrimaryButton>
       </LoginContainer>
     );

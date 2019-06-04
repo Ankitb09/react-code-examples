@@ -1,14 +1,14 @@
 import * as actionType from "../actions/actionTypes";
 
-const intitalState = {
+const initialState = {
   categories: [],
   bookList: {},
   selectedCategory: "",
-  error: "",
+  error: {},
   isLoading: 0
 };
 
-const discoveryReducer = (state = intitalState, action) => {
+const discoveryReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionType.FETCH_BOOKLIST:
       return { ...state, isLoading: state.isLoading + 1 };
@@ -16,10 +16,15 @@ const discoveryReducer = (state = intitalState, action) => {
       return {
         ...state,
         bookList: action.payload,
-        isLoading: state.isLoading - 1
+        isLoading: state.isLoading - 1,
+        error: { ...state.error, booklist: {} },
       };
     case actionType.FETCH_BOOKLIST_ERROR:
-      return { ...state, error: action.error, isLoading: state.isLoading - 1 };
+      return {
+        ...state,
+        error: { ...state.error, booklist: action.error },
+        isLoading: state.isLoading - 1
+      };
 
     case actionType.FETCH_CATEGORIES:
       return { ...state, isLoading: state.isLoading + 1 };
@@ -29,10 +34,11 @@ const discoveryReducer = (state = intitalState, action) => {
         ...state,
         categories: action.payload,
         isLoading: state.isLoading - 1,
-        selectedCategory: action.selectedCategory
+        selectedCategory: action.selectedCategory,
+        error: { ...state.error, category: {} },
       };
     case actionType.FETCH_CATEGORIES_ERROR:
-      return { ...state, error: action.error, isLoading: state.isLoading - 1 };
+      return { ...state, error: { ...state.error, category: action.error }, isLoading: state.isLoading - 1 };
 
     case actionType.SELECT_CATEGORY:
       return { ...state, selectedCategory: action.id };

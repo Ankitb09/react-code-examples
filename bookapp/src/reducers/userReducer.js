@@ -1,6 +1,6 @@
 import * as actionType from '../actions/actionTypes';
 
-const intialState = {
+const initialState = {
     userId: '',
     isLoading: false,
     error: '',
@@ -8,7 +8,7 @@ const intialState = {
     accessType: 'free'
 };
 
-const userReducer = (state = intialState, action) => {
+const userReducer = (state = initialState, action) => {
     switch (action.type) {
         case actionType.LOGIN:
             return { ...state, isLoading: true };

@@ -56,7 +56,8 @@ const NavLinkStyled = styled(NavLink)`
 
 const CardTitle = styled.h3`
   line-height: 1.2;
-  min-height: 44px;
+  min-height: 18px;
+  font-size: 1.4rem;
 `;
 const CardText = styled.div`
   border-top: 1px solid #efefef;

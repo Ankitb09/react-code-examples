@@ -9,7 +9,7 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 import ProtectedRoute from "./containers/ProtectedRoute";
 import Header from "./components/Header";
 import Discovery from "./containers/Discovery";
-import Login from "./containers/login";
+import Login from "./containers/Login";
 import BookDetails from "./containers/BookDetails";
 
 import { GlobalStyle } from "./CommonStyles";

@@ -6,28 +6,29 @@ import { requestSelectedBook } from "../actions/bookDetailsActions";
 
 import Loader from "../components/Loader";
 import styled from "styled-components";
-import { Container, H1, PrimaryButton , Paragraph} from "../CommonStyles";
-
+import { Container, H1, PrimaryButton, Paragraph } from "../CommonStyles";
 
 const DetailedCont = styled(Container)`
   flex-direction: column;
-  margin-top:40px;
+  margin-top: 40px;
 `;
 
 const H1Head = styled(H1)`
   flex: 1 100%;
   font-size: 35px;
-  font-weight:500;
+  font-weight: 500;
 `;
 
 const Content = styled.div`
   flex: 1 100%;
   position: relative;
-  & p{
-    margin-top:20px
+  & p {
+    margin-top: 20px;
   }
 
-  ${(props) => props.hideContent && `
+  ${props =>
+    props.hideContent &&
+    `
     ::after{
       content: ' ';
       display: block;
@@ -42,13 +43,13 @@ const Content = styled.div`
 
 const SubscriptionBtnCont = styled.div`
   position: absolute;
-  text-align:center;
-  width:100%;
-`
+  text-align: center;
+  width: 100%;
+`;
 
 export class BookDetails extends Component {
   componentDidMount() {
-    let { bookListPremium } = this.props;
+    let { detailedBooks } = this.props;
     let { id } = this.props.match.params;
 
     if (!this.props.accessType) {
@@ -56,8 +57,8 @@ export class BookDetails extends Component {
     }
 
     let bookId = this.props.match.params.id;
-    // if Book is already in state bookListPremium
-    if (!(id in bookListPremium)) {
+    // if Book is already in state detailedBooks
+    if (!(id in detailedBooks)) {
       this.props.requestSelectedBook(bookId);
     }
   }
@@ -67,21 +68,25 @@ export class BookDetails extends Component {
   };
 
   getBookDetails = () => {
-    let { bookListPremium, accessType } = this.props;
+    let { detailedBooks, accessType } = this.props;
     let { id } = this.props.match.params;
     let isfreeUser = accessType === "free" ? true : false;
 
-    if (id in bookListPremium) {
+    if (id in detailedBooks) {
       return (
         <div>
           <DetailedCont>
-            <H1Head>{bookListPremium[id].title}</H1Head>
+            <H1Head>{detailedBooks[id].title}</H1Head>
             <Content hideContent={isfreeUser}>
-              <Paragraph>{bookListPremium[id].content}</Paragraph>
-              {isfreeUser && (
+              <Paragraph>{detailedBooks[id].content}</Paragraph>
+              {isfreeUser ? (
                 <SubscriptionBtnCont>
-                  <PrimaryButton onClick={this.handleSubscription}>Subscribe to Read</PrimaryButton>
+                  <PrimaryButton onClick={this.handleSubscription}>
+                    Subscribe to Read
+                  </PrimaryButton>
                 </SubscriptionBtnCont>
+              ) : (
+                <Paragraph>{detailedBooks[id].content}</Paragraph>
               )}
             </Content>
           </DetailedCont>
@@ -99,14 +104,14 @@ export class BookDetails extends Component {
 
 BookDetails.propTypes = {
   accessType: PropTypes.string.isRequired,
-  bookListPremium: PropTypes.object.isRequired,
+  detailedBooks: PropTypes.object.isRequired,
   isLoading: PropTypes.bool
 };
 
 const mapStateToProps = state => {
   return {
     accessType: state.user.accessType,
-    bookListPremium: state.bookDetails.bookListPremium,
+    detailedBooks: state.bookDetails.detailedBooks,
     isLoading: state.bookDetails.isLoading
   };
 };

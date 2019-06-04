@@ -26,7 +26,7 @@ export const PageHeading = styled.div`
 
 export const Headings = css`
   color: #343434;
-  font-family: Montserrat, Verdana, Geneva, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   margin: 0;
 `;
@@ -94,7 +94,7 @@ export const PrimaryButton = styled.button`
   border-radius: 2px;
   color: #fff;
   display: inline-block;
-  font-family: "Montserrat";
+  font-family: 'Montserrat', sans-serif;;
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 1.25;
