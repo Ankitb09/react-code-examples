@@ -6,12 +6,15 @@ export const GlobalStyle = createGlobalStyle`
     height:100%;
     background: #f8f8f8;    
     color: #343434;
-  
+    font-size: 62.5%;
     font-family: 'Source Sans Pro', 'Trebuchet MS', Helvetica, sans-serif;
   }
   html, body, figure {
     padding: 0;
     margin: 0;
+  }
+  body{
+    font-size: 1.6rem;
   }
   *{box-sizing: border-box;}
 `;
@@ -72,6 +75,7 @@ export const Container = styled.div`
   margin: 0 auto;
   width:100%;
   display:flex;
+  flex-direction: row;
 `;
 
 export const UL = styled.ul`
@@ -91,7 +95,7 @@ export const PrimaryButton = styled.button`
   color: #fff;
   display: inline-block;
   font-family: "Montserrat";
-  font-size: 1rem;
+  font-size: 1.6rem;
   font-weight: 500;
   line-height: 1.25;
   padding: 0.625rem 1rem;

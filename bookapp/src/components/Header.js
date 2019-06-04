@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 import { Container, TextSpan } from "../CommonStyles";
-import logo from "../images/blinkist-sprites.png";
+///import logo from "../images/blinkist-sprites.png";
 
 // ****** App styles: starts here ********
 const PageHeader = styled.header`
@@ -23,7 +23,6 @@ const HeaderContainer = styled(Container)`
 
 const Logo = styled.a`
   display: inline-block;
-  background-image: url(${logo});
   background-position: 0 -273px;
   background-size: 135px;
   width: 134px;
@@ -44,7 +43,6 @@ class Header extends Component {
       <div>
         <PageHeader>
           <HeaderContainer>
-            <Logo />
             <TextSpan>Login</TextSpan>
           </HeaderContainer>
         </PageHeader>

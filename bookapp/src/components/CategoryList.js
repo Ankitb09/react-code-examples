@@ -8,12 +8,15 @@ const List = styled(LI)`
   &:hover {
     text-decoration: underline;
   }
+  ${(props)=> props.active &&`
+    text-decoration: underline;
+  `}
 `;
 
 const CategoryList = props => {
   let mappedList = props.categories.map(ele => {
     return (
-      <List semiBold key={ele.id} onClick={() => props.filterFn(ele.id)}>
+      <List semiBold key={ele.id} active={props.activeCategory===ele.id} onClick={() => props.filterFn(ele.id)}>
         {ele.title}
       </List>
     );

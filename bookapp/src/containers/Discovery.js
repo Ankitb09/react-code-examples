@@ -56,6 +56,7 @@ class Discovery extends Component {
           <Container>
             <LeftPanel>
               <CategoryList
+                activeCategory={this.props.selectedCategory}
                 categories={this.props.categories}
                 filterFn={this.handleFilter}
               />
