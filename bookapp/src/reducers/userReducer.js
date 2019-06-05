@@ -3,7 +3,7 @@ import * as actionType from '../actions/actionTypes';
 const initialState = {
     userId: '',
     isLoading: false,
-    error: '',
+    error: {},
     isAuthenticated: false,
     accessType: 'free'
 };

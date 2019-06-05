@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
+//************ Styling starts here *************//
 const rotate = keyframes`
     0% {
       -webkit-transform: rotate(0deg);
@@ -35,6 +36,8 @@ const LoadingCont = styled.div`
     height: 10em;
   }
 `;
+//************ Styling ends here *************//
+
 
 const Loader = () => {
   return <LoadingCont />;

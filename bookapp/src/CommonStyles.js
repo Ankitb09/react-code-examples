@@ -76,6 +76,8 @@ export const Container = styled.div`
   width:100%;
   display:flex;
   flex-direction: row;
+  padding-left:15px;
+  padding-right:15px;
 `;
 
 export const UL = styled.ul`

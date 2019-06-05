@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import {
   requestCategories,
   requestBookList,
@@ -7,11 +8,15 @@ import {
 import { connect } from "react-redux";
 import BookList from "../components/BookList";
 import CategoryList from "../components/CategoryList";
+
+// importing Styled components
 import styled from "styled-components";
 import { Container } from "../CommonStyles";
 
+// importing Helper Component
 import Loader from "../components/Loader";
 
+//************ Styling starts here *************//
 const LeftPanel = styled.div`
   flex: 1 1 auto;
 `;
@@ -19,12 +24,17 @@ const LeftPanel = styled.div`
 const RightPanel = styled.div`
   flex: 3 1 auto;
 `;
+//************ Styling ends here *************//
+
 
 class Discovery extends Component {
   componentDidMount() {
+    // Requesting Category list if not available 
     if (this.props.categories.length === 0) {
       this.props.requestCategories();
     }
+
+    // Requesting Books list if not available 
     if (Object.keys(this.props.bookList).length === 0) {
       this.props.requestBookList();
     }
@@ -33,9 +43,10 @@ class Discovery extends Component {
   handleFilter = category => {
     this.props.selectCategory(category);
   };
+
+  // Filtering and rendering books on basis of Selected Category.
   renderBooks = () => {
     let { bookList, categories, selectedCategory } = this.props;
-
     if (selectedCategory && Object.keys(bookList).length !== 0) {
       let filtered = categories.filter(ele => {
         return ele.id === selectedCategory;
@@ -47,7 +58,6 @@ class Discovery extends Component {
 
   render() {
     let { loadStatus } = this.props;
-    console.log(this.props)
     return (
       <div>
         {loadStatus > 0 ? (
@@ -67,6 +77,13 @@ class Discovery extends Component {
       </div>
     );
   }
+}
+
+Discovery.propTypes = {
+  categories: PropTypes.array.isRequired,
+  selectedCategory: PropTypes.string.isRequired,
+  loadStatus: PropTypes.number,
+  bookList: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({

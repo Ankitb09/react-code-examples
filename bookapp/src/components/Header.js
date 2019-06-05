@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Container, TextSpan } from "../CommonStyles";
 ///import logo from "../images/blinkist-sprites.png";
 
-// ****** App styles: starts here ********
+//************ Styling starts here *************//
 const PageHeader = styled.header`
   min-height: 60px;
   background-color: #ecf1eb;
@@ -31,12 +31,10 @@ const Logo = styled.a`
     margin-top: 5px;
   }
 `;
-// ****** App styles: ends here ********
+//************ Styling ends here *************//
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
-  }
+ 
   render() {
     const path = this.props.location.pathname.slice(1);
     return (

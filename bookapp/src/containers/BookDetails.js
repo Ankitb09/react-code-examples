@@ -4,10 +4,14 @@ import { connect } from "react-redux";
 import { getUserType, subscribeUser } from "../actions/userActions";
 import { requestSelectedBook } from "../actions/bookDetailsActions";
 
-import Loader from "../components/Loader";
+// importing Styled components
 import styled from "styled-components";
 import { Container, H1, PrimaryButton, Paragraph } from "../CommonStyles";
 
+// importing Helper Component
+import Loader from "../components/Loader";
+
+//************ Styling starts here *************//
 const DetailedCont = styled(Container)`
   flex-direction: column;
   margin-top: 40px;
@@ -46,24 +50,37 @@ const SubscriptionBtnCont = styled.div`
   text-align: center;
   width: 100%;
 `;
+//************ Styling ends here *************//
+
 
 export class BookDetails extends Component {
   componentDidMount() {
     let { detailedBooks } = this.props;
+
+    // Getting id on the basis of Route params
     let { id } = this.props.match.params;
 
+    // Checking if we already know about user type
     if (!this.props.accessType) {
       this.props.getUserType();
     }
 
     let bookId = this.props.match.params.id;
-    // if Book is already in state detailedBooks
+    
+    /*
+     *  Preventing duplicate network call 
+        if Book is already preset in Store object "detailedBooks"
+     */ 
     if (!(id in detailedBooks)) {
       this.props.requestSelectedBook(bookId);
     }
   }
 
   handleSubscription = () => {
+    /*
+     *    We can trigger our payment flow from this handler.
+     *    Currently marking user as premium on button click.
+     */ 
     this.props.subscribeUser();
   };
 
@@ -80,12 +97,14 @@ export class BookDetails extends Component {
             <Content hideContent={isfreeUser}>
               <Paragraph>{detailedBooks[id].content}</Paragraph>
               {isfreeUser ? (
+                // Subscription button if user is not Premium
                 <SubscriptionBtnCont>
                   <PrimaryButton onClick={this.handleSubscription}>
                     Subscribe to Read
                   </PrimaryButton>
                 </SubscriptionBtnCont>
               ) : (
+                // Premium content which is visible only to premium User
                 <Paragraph>{detailedBooks[id].content}</Paragraph>
               )}
             </Content>

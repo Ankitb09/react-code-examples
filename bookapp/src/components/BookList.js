@@ -2,10 +2,10 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { UL, LI } from "../CommonStyles";
+import PropTypes from "prop-types";
 
-const Card = styled.div`
-
-`;
+//************ Styling starts here *************//
+const Card = styled.div``;
 
 const CardList = styled(UL)`
   display: flex;
@@ -22,7 +22,7 @@ const CardListItem = styled(LI)`
   box-sizing: border-box;
   margin: 0 10px 25px 10px;
   text-align: center;
-  @media (max-width: 420px) {
+  @media (max-width: 768px) {
     flex: 100%;
     max-width: 100%;
   }
@@ -62,8 +62,10 @@ const CardTitle = styled.h3`
 const CardText = styled.div`
   border-top: 1px solid #efefef;
 `;
+//************ Styling ends here *************//
 
 const BookList = props => {
+  //Mapping on array of Book Ids returned by selected category
   let maps = props.sublist.map((bookId, i) => {
     return (
       <CardListItem key={i}>
@@ -93,5 +95,10 @@ const BookList = props => {
     </div>
   );
 };
+
+BookList.propTypes = {
+  sublist: PropTypes.array.isRequired,
+  list: PropTypes.object.isRequired
+}
 
 export default BookList;
