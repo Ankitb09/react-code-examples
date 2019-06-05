@@ -4,6 +4,7 @@ import { UL, LI } from "../CommonStyles";
 import PropTypes from "prop-types";
 
 //************ Styling starts here *************//
+UL.displayName = 'CategoryUL';
 const List = styled(LI)`
   margin: 5px 0;
   cursor: pointer;
@@ -14,6 +15,7 @@ const List = styled(LI)`
     text-decoration: underline;
   `}
 `;
+List.displayName = 'CategoryLI';
 //************ Styling ends here *************//
 
 const CategoryList = props => {

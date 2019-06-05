@@ -13,6 +13,8 @@ const CardList = styled(UL)`
   flex-direction: forward;
   justify-content: space-around;
 `;
+CardList.displayName = 'UlList';
+
 const CardListItem = styled(LI)`
   list-style: none;
   flex: 22%;
